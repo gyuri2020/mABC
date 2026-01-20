@@ -1,13 +1,19 @@
 from agents.base.profile import (
-    AgentWorkflow, DataDetective, DependencyExplorer, SolutionEngineer, 
-    ProbabilityOracle, FaultMapper, AlertReceiver, ProcessScheduler
+    AgentWorkflow,
+    DataDetective,
+    DependencyExplorer,
+    SolutionEngineer,
+    ProbabilityOracle,
+    FaultMapper,
+    AlertReceiver,
+    ProcessScheduler,
 )
 from agents.base.run import BaseRun, ReActTotRun, ThreeHotCotRun
 
 # def ask_for_base_agent(question: str) -> str:
 #     """
 #     The Base Agent is the most basic agent in the system. It is the first agent to be called when a question is asked. The Base Agent just returns the answer with thinking.
-    
+
 #     Parameters:
 #     - question (str): The question to ask the Base Agent, you should describe the problem in detail as much as possible, because Base Agent do not know anything about the question.
 
@@ -18,10 +24,11 @@ from agents.base.run import BaseRun, ReActTotRun, ThreeHotCotRun
 #     run = BaseRun()
 #     return run.run(base_agent, question)
 
+
 def ask_for_data_detective(question: str) -> str:
     """
     Ask for Data Detective Agent about endpoint metric in a endpoint. Data Detective Agent monitors and analyzes endpoint metric using functions like query_endpoint_metrics_in_range(endpoint, time). The endpoint metrics, including API call count, success rate, error rate, response time and timeout rate, are used to identify trends and issues in this endpoint.
-    
+
     Parameters:
     - question (str): The question to ask the Data Detective Agent, you should describe the question in detail as much as possible including Endpoint and Time, because Data Detective Agent only know what you have told it.
 
@@ -31,9 +38,20 @@ def ask_for_data_detective(question: str) -> str:
     data_detective = DataDetective()
     run = ReActTotRun()
     eval_run = ThreeHotCotRun()
-    agents = [DataDetective(), DependencyExplorer(), SolutionEngineer(), ProbabilityOracle(), FaultMapper(), AlertReceiver(), ProcessScheduler()]
+    agents = [
+        DataDetective(),
+        DependencyExplorer(),
+        SolutionEngineer(),
+        ProbabilityOracle(),
+        FaultMapper(),
+        AlertReceiver(),
+        ProcessScheduler(),
+    ]
     from agents.tools import data_detective_tools
-    return run.run(data_detective, question, vars(data_detective_tools), eval_run, agents)
+
+    return run.run(
+        data_detective, question, vars(data_detective_tools), eval_run, agents
+    )
 
 
 def ask_for_dependency_explorer(question: str) -> str:
@@ -46,12 +64,28 @@ def ask_for_dependency_explorer(question: str) -> str:
     Returns:
     - str: The response from the Dependency Explorer Agent.
     """
-    denpendency_explorer = DependencyExplorer()
+    dependency_explorer = DependencyExplorer()
     run = ReActTotRun()
     eval_run = ThreeHotCotRun()
-    agents = [DataDetective(), DependencyExplorer(), SolutionEngineer(), ProbabilityOracle(), FaultMapper(), AlertReceiver(), ProcessScheduler()]
-    from agents.tools import denpendency_explorer_tools
-    return run.run(denpendency_explorer, question, vars(denpendency_explorer_tools), eval_run, agents)
+    agents = [
+        DataDetective(),
+        DependencyExplorer(),
+        SolutionEngineer(),
+        ProbabilityOracle(),
+        FaultMapper(),
+        AlertReceiver(),
+        ProcessScheduler(),
+    ]
+    from agents.tools import dependency_explorer_tools
+
+    return run.run(
+        dependency_explorer,
+        question,
+        vars(dependency_explorer_tools),
+        eval_run,
+        agents,
+    )
+
 
 def ask_for_solution_engineer(question: str) -> str:
     """
@@ -66,9 +100,21 @@ def ask_for_solution_engineer(question: str) -> str:
     solution_engineer = SolutionEngineer()
     run = ReActTotRun()
     eval_run = ThreeHotCotRun()
-    agents = [DataDetective(), DependencyExplorer(), SolutionEngineer(), ProbabilityOracle(), FaultMapper(), AlertReceiver(), ProcessScheduler()]
+    agents = [
+        DataDetective(),
+        DependencyExplorer(),
+        SolutionEngineer(),
+        ProbabilityOracle(),
+        FaultMapper(),
+        AlertReceiver(),
+        ProcessScheduler(),
+    ]
     from agents.tools import solution_engineer_tools
-    return run.run(solution_engineer, question, vars(solution_engineer_tools), eval_run, agents)
+
+    return run.run(
+        solution_engineer, question, vars(solution_engineer_tools), eval_run, agents
+    )
+
 
 def ask_for_probability_oracle(question: str) -> str:
     """
@@ -83,9 +129,21 @@ def ask_for_probability_oracle(question: str) -> str:
     probability_oracle = ProbabilityOracle()
     run = ReActTotRun()
     eval_run = ThreeHotCotRun()
-    agents = [DataDetective(), DependencyExplorer(), SolutionEngineer(), ProbabilityOracle(), FaultMapper(), AlertReceiver(), ProcessScheduler()]
+    agents = [
+        DataDetective(),
+        DependencyExplorer(),
+        SolutionEngineer(),
+        ProbabilityOracle(),
+        FaultMapper(),
+        AlertReceiver(),
+        ProcessScheduler(),
+    ]
     from agents.tools import probability_oracle_tools
-    return run.run(probability_oracle, question, vars(probability_oracle_tools), eval_run, agents)
+
+    return run.run(
+        probability_oracle, question, vars(probability_oracle_tools), eval_run, agents
+    )
+
 
 def ask_for_fault_mapper(question: str) -> str:
     """
@@ -100,9 +158,19 @@ def ask_for_fault_mapper(question: str) -> str:
     fault_mapper = FaultMapper()
     run = ReActTotRun()
     eval_run = ThreeHotCotRun()
-    agents = [DataDetective(), DependencyExplorer(), SolutionEngineer(), ProbabilityOracle(), FaultMapper(), AlertReceiver(), ProcessScheduler()]
+    agents = [
+        DataDetective(),
+        DependencyExplorer(),
+        SolutionEngineer(),
+        ProbabilityOracle(),
+        FaultMapper(),
+        AlertReceiver(),
+        ProcessScheduler(),
+    ]
     from agents.tools import fault_mapper_tools
+
     return run.run(fault_mapper, question, vars(fault_mapper_tools), eval_run, agents)
+
 
 # def ask_for_alert_receiver(question: str) -> str:
 #     """
