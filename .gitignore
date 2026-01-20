@@ -16,3 +16,6 @@ data/system_info
 data/handle_info
 data/span_info
 resource
+
+#Gyuri
+venv/*
